@@ -1,0 +1,195 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Leaflet 커스텀 마커 */
+.custom-marker-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.course-marker {
+  position: relative;
+  background: white;
+  border: 1px solid #D9E0E8;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+  width: max-content;
+  max-width: 200px;
+  cursor: pointer;
+  transform: translateX(-50%);
+  margin-left: 90px;
+}
+
+.course-marker.selected {
+  border: 2px solid #1AB277;
+  box-shadow: 0 4px 12px rgba(26, 178, 119, 0.3);
+  z-index: 1000;
+}
+
+.course-marker .marker-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #272833;
+  display: block;
+  margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.course-marker .marker-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.course-marker .marker-teams {
+  color: #1AB277;
+  font-weight: 600;
+}
+
+.course-marker .marker-price {
+  color: #272833;
+  font-weight: 700;
+}
+
+.course-marker .marker-tail {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+}
+
+.course-marker.selected .marker-tail {
+  border-top-color: #1AB277;
+}
+
+.course-marker.dimmed {
+  opacity: 0.25;
+}
+
+.course-marker .marker-km-badge {
+  display: inline-block;
+  background: #1AB277;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-bottom: 3px;
+  letter-spacing: -0.2px;
+}
+
+.course-marker .marker-km-badge.default {
+  background: #9EABBA;
+}
+
+/* 공항 마커 */
+.airport-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transform: translateX(-50%);
+  margin-left: 60px;
+  cursor: pointer;
+}
+
+.airport-marker .airport-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #272833;
+  background: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid #D9E0E8;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.airport-marker .airport-icon {
+  width: 26px;
+  height: 26px;
+  background: #272833;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border: 2px solid white;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.airport-marker:hover .airport-icon {
+  transform: scale(1.1);
+}
+
+.airport-marker.active .airport-name {
+  color: white;
+  background: #149867;
+  border-color: #149867;
+  font-size: 13px;
+  padding: 3px 10px;
+  box-shadow: 0 2px 8px rgba(20, 152, 103, 0.4);
+}
+
+.airport-marker.active .airport-icon {
+  background: #149867;
+  transform: scale(1.15);
+}
+
+/* compact: 지방공항 줌아웃 시 아이콘만 작게 */
+.airport-marker.compact {
+  margin-left: 20px;
+}
+.airport-marker.compact .airport-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  border-width: 1.5px;
+  background: #BFCAD6;
+}
+.airport-marker.compact:hover .airport-icon {
+  background: #9EABBA;
+  transform: scale(1.2);
+}
+
+/* 거리 라벨 (점선 중간) */
+.distance-label {
+  background: white;
+  border: 1px solid #272833;
+  color: #272833;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 14px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  text-align: center;
+  width: max-content;
+  min-width: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
